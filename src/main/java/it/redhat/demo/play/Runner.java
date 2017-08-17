@@ -26,6 +26,7 @@ public class Runner {
     public int module = 1000;
     private List<PermanentData> perms = new ArrayList<PermanentData>();
     private List<Data> tran = new ArrayList<Data>();
+    private Score score = new Score();
 
     public static void main(String[] args) {
 
@@ -45,8 +46,13 @@ public class Runner {
         perms.add(new PermanentData(perms, tran));
         int size = perms.size();
 
-        if (size % 100 == 0) {
-            System.out.println(size);
+        if (size % 1000 == 0) {
+            System.out.println(score);
+        }
+
+        if (size % 10000 == 0) {
+            System.out.println("Free Perm");
+            perms.clear();
         }
 
     }
@@ -66,6 +72,8 @@ public class Runner {
     // 3       it.redhat.demo.play.Runner::run (35 bytes)
     private void run() {
 
+        score.start();
+
         // %     4       it.redhat.demo.play.Runner::run @ 2 (35 bytes)
         // %     3       it.redhat.demo.play.Runner::run @ -2 (35 bytes)   made not entrant
         // %     4       it.redhat.demo.play.Runner::run @ -2 (35 bytes)   made not entrant
@@ -76,8 +84,10 @@ public class Runner {
 
             if (i % module == 0) {
                 persist();
+                score.addComplex();
             } else {
                 tran();
+                score.addSimple();
             }
 
         }
