@@ -28,6 +28,7 @@
 
     <modules>
         <module>java-jit</module>
+        <module>java-indefinite-reference</module>
     </modules>
 
     <properties>
