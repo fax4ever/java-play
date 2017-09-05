@@ -33,18 +33,26 @@ public class Main {
 
     public static void main(String[] args) {
 
+        int softTimes = 70;
+        int weakTimes = 70;
+
+        if (args.length == 2) {
+            softTimes = Integer.parseInt(args[0]);
+            weakTimes = Integer.parseInt(args[1]);
+        }
+
         ExecutorService softExecutor = Executors.newFixedThreadPool(5);
         ExecutorService weakExecutor = Executors.newFixedThreadPool(5);
 
-        runWeak(weakExecutor);
-        runSoft(softExecutor);
+        runSoft(softExecutor, softTimes);
+        runWeak(weakExecutor, weakTimes);
 
         waitExecutor(softExecutor, weakExecutor);
 
     }
 
-    private static void runWeak(ExecutorService weakExecutor) {
-        for (int i=0; i<70; i++) {
+    private static void runWeak(ExecutorService weakExecutor, int times) {
+        for (int i = 0; i< times; i++) {
             WeakTask weakTask = new WeakTask();
 
             for (int j=0; j<100; j++) {
@@ -59,8 +67,8 @@ public class Main {
         }
     }
 
-    private static void runSoft(ExecutorService softExecutor) {
-        for (int i=0; i<70; i++) {
+    private static void runSoft(ExecutorService softExecutor, int times) {
+        for (int i = 0; i< times; i++) {
             SoftTask softTask = new SoftTask();
 
             for (int j=0; j<100; j++) {
