@@ -39,7 +39,7 @@ public class WeakTask implements Callable<Long> {
             localCache.set(data.result());
         }
 
-        LOG.info("Weak Result " + localCache.get());
+        LOG.debug("Weak Result " + localCache.get());
         return localCache.get();
 
     }

@@ -39,7 +39,10 @@ public class SoftTask implements Callable<Long> {
             localCache.set(data.result());
         }
 
-        LOG.info("Soft Result " + localCache.get());
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Soft Result " + localCache.get());
+        }
+
         return localCache.get();
     }
     

@@ -30,7 +30,7 @@ public class SoftReferenceService {
 
     private static Logger LOG = LoggerFactory.getLogger(SoftReferenceService.class);
 
-    private static final int VOLUMES = 100000;
+    private static final int VOLUMES = 1000000;
     private static final int BOUND = 3;
 
     private static SoftReferenceService instance;
@@ -51,8 +51,9 @@ public class SoftReferenceService {
         }
 
         if (instance.cache.get() == null) {
+            // never executed for LRU of GC
             instance.cache = new SoftReference<>(build());
-            LOG.warn("Recreate Data Soft reference");
+            LOG.warn("--> Recreate Data Soft reference <--");
         }
 
         return instance.cache.get();
