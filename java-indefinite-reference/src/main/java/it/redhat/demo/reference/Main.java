@@ -36,14 +36,46 @@ public class Main {
         ExecutorService softExecutor = Executors.newFixedThreadPool(5);
         ExecutorService weakExecutor = Executors.newFixedThreadPool(5);
 
-        SoftTask softTask = new SoftTask();
-        WeakTask weakTask = new WeakTask();
+        runWeak(weakExecutor);
+        runSoft(softExecutor);
 
-        for (int i=0; i<100; i++) {
-            softExecutor.submit(softTask);
-            weakExecutor.submit(weakTask);
+        waitExecutor(softExecutor, weakExecutor);
+
+    }
+
+    private static void runWeak(ExecutorService weakExecutor) {
+        for (int i=0; i<70; i++) {
+            WeakTask weakTask = new WeakTask();
+
+            for (int j=0; j<100; j++) {
+                weakExecutor.submit(weakTask);
+            }
+
+            try {
+                Thread.sleep(10000l);
+            } catch (InterruptedException e) {
+                LOG.error("Sleep interrupted!");
+            }
         }
+    }
 
+    private static void runSoft(ExecutorService softExecutor) {
+        for (int i=0; i<70; i++) {
+            SoftTask softTask = new SoftTask();
+
+            for (int j=0; j<100; j++) {
+                softExecutor.submit(softTask);
+            }
+
+            try {
+                Thread.sleep(10000l);
+            } catch (InterruptedException e) {
+                LOG.error("Sleep interrupted!");
+            }
+        }
+    }
+
+    private static void waitExecutor(ExecutorService softExecutor, ExecutorService weakExecutor) {
         try {
 
             LOG.debug("Attempt to shutdown executor");
@@ -71,7 +103,6 @@ public class Main {
             LOG.debug("Shutdown finished!");
 
         }
-
     }
 
 }
