@@ -60,6 +60,8 @@ public class WeakReferenceService {
 
     private static Data build() {
 
+        // in this case only one thread will create the random key
+        // in case of multiple thread use java.util.concurrent.ThreadLocalRandom instead
         Random randomGenerator = new Random();
         Data dataResult = new Data();
 
