@@ -28,7 +28,7 @@ public class SoftTask implements Callable<Long> {
 
     private static Logger LOG = LoggerFactory.getLogger(SoftTask.class);
 
-    private ThreadLocal<Long> localCache = new ThreadLocal();
+    private static ThreadLocal<Long> localCache = new ThreadLocal();
 
     @Override
     public Long call() throws Exception {
