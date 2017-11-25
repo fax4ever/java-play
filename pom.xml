@@ -30,6 +30,7 @@
         <module>java-jit</module>
         <module>java-indefinite-reference</module>
         <module>java-regex</module>
+        <module>java-index</module>
     </modules>
 
     <properties>
