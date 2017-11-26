@@ -78,23 +78,32 @@ public class IndexFileTest {
 		// stage read
 
 		IndexReader reader = DirectoryReader.open( indexDirectory );
-		IndexSearcher searcher = new IndexSearcher( reader );
-		QueryParser parser = new QueryParser( "content", analyzer );
 
-		Query query = parser.parse( "hello" );
-		TopDocs results = searcher.search( query, 5 );
-		LOG.info( "Hits for hello --> {}", results.totalHits );
-		assertEquals( 2, results.totalHits );
+		try {
 
-		query = parser.parse( "Hello" );
-		results = searcher.search( query, 5 );
-		LOG.info( "Hits for Hello --> {}", results.totalHits );
-		assertEquals( 2, results.totalHits );
+			IndexSearcher searcher = new IndexSearcher( reader );
+			QueryParser parser = new QueryParser( "content", analyzer );
 
-		query = parser.parse( "Hi there" );
-		results = searcher.search( query, 5 );
-		LOG.info( "Hits for Hi there --> {}", results.totalHits );
-		assertEquals( 0, results.totalHits );
+			Query query = parser.parse( "hello" );
+			TopDocs results = searcher.search( query, 5 );
+			LOG.info( "Hits for hello --> {}", results.totalHits );
+			assertEquals( 2, results.totalHits );
+
+			query = parser.parse( "Hello" );
+			results = searcher.search( query, 5 );
+			LOG.info( "Hits for Hello --> {}", results.totalHits );
+			assertEquals( 2, results.totalHits );
+
+			query = parser.parse( "Hi there" );
+			results = searcher.search( query, 5 );
+			LOG.info( "Hits for Hi there --> {}", results.totalHits );
+			assertEquals( 0, results.totalHits );
+
+		} finally {
+
+			reader.close();
+
+		}
 
 	}
 
