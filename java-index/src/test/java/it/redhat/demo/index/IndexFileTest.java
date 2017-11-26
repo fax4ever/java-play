@@ -64,13 +64,14 @@ public class IndexFileTest {
 				document.add( new TextField( "content", br ) );
 
 				// add metadata
-				document.add( new TextField( "filename", file.getName(), Field.Store.YES) );
-				document.add( new TextField( "fullpath", file.getCanonicalPath(), Field.Store.YES) );
+				document.add( new TextField( "filename", file.getName(), Field.Store.YES ) );
+				document.add( new TextField( "fullpath", file.getCanonicalPath(), Field.Store.YES ) );
 
 				writer.addDocument( document );
 			}
 
-		} finally {
+		}
+		finally {
 			writer.close();
 		}
 
@@ -78,7 +79,7 @@ public class IndexFileTest {
 
 		IndexReader reader = DirectoryReader.open( indexDirectory );
 		IndexSearcher searcher = new IndexSearcher( reader );
-		QueryParser parser = new QueryParser( "content", analyzer);
+		QueryParser parser = new QueryParser( "content", analyzer );
 
 		Query query = parser.parse( "hello" );
 		TopDocs results = searcher.search( query, 5 );
