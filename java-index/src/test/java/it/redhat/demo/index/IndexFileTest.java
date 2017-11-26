@@ -49,6 +49,8 @@ public class IndexFileTest {
 		// stage write
 
 		IndexWriterConfig config = new IndexWriterConfig( analyzer );
+
+		// recreate a new index for current segment
 		config.setOpenMode( IndexWriterConfig.OpenMode.CREATE );
 		IndexWriter writer = new IndexWriter( indexDirectory, config );
 
@@ -81,6 +83,10 @@ public class IndexFileTest {
 
 		try {
 
+			assertEquals( 2, reader.numDocs() );
+			assertEquals( 2, reader.maxDoc() );
+
+			// stage search
 			IndexSearcher searcher = new IndexSearcher( reader );
 			QueryParser parser = new QueryParser( "content", analyzer );
 
