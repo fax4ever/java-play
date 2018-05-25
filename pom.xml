@@ -31,6 +31,7 @@
         <module>java-indefinite-reference</module>
         <module>java-regex</module>
         <module>java-index</module>
+        <module>java-dynamic-proxy</module>
     </modules>
 
     <properties>
