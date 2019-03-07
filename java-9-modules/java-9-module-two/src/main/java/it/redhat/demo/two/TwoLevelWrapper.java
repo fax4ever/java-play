@@ -11,6 +11,6 @@ public class TwoLevelWrapper {
 	}
 
 	public String getName() {
-		return one.getName();
+		return "[" + one.getName() + "]";
 	}
 }

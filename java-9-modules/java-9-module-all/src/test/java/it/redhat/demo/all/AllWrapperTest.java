@@ -12,8 +12,8 @@ public class AllWrapperTest {
 	public void test() {
 		String myText = "ciao come va?";
 		testSubject = new AllWrapper( myText );
-		assertEquals( myText, testSubject.getNameOne() );
-		assertEquals( myText, testSubject.getNameTwo() );
-		assertEquals( myText, testSubject.getNameThree() );
+		assertEquals( "(" + myText + ")", testSubject.getNameOne() );
+		assertEquals( "[(" + myText + ")]", testSubject.getNameTwo() );
+		assertEquals( "{[(" + myText + ")]}", testSubject.getNameThree() );
 	}
 }

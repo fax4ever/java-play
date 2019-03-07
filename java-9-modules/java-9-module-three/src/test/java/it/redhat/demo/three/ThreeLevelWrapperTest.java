@@ -12,6 +12,6 @@ public class ThreeLevelWrapperTest {
 	public void test() {
 		String myText = "ciao come va?";
 		testSubject = new ThreeLevelWrapper( myText );
-		assertEquals( myText, testSubject.getName() );
+		assertEquals( "{[(" + myText + ")]}", testSubject.getName() );
 	}
 }

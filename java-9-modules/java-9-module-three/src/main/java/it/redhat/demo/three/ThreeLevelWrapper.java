@@ -11,6 +11,6 @@ public class ThreeLevelWrapper {
 	}
 
 	public String getName() {
-		return two.getName();
+		return "{" + two.getName() + "}";
 	}
 }

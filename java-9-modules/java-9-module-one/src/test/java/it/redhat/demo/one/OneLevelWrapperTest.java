@@ -12,6 +12,6 @@ public class OneLevelWrapperTest {
 	public void test() {
 		String myText = "ciao come va?";
 		testSubject = new OneLevelWrapper( myText );
-		assertEquals( myText, testSubject.getName() );
+		assertEquals( "(" + myText + ")", testSubject.getName() );
 	}
 }
