@@ -13,6 +13,7 @@
         <module>java-9-module-one</module>
         <module>java-9-module-two</module>
         <module>java-9-module-three</module>
+        <module>java-9-module-all</module>
     </modules>
 
     <dependencies>
