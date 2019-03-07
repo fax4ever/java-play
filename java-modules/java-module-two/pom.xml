@@ -6,16 +6,17 @@
 
     <parent>
         <groupId>it.redhat.demo</groupId>
-        <artifactId>java-9-modules</artifactId>
+        <artifactId>java-modules</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>java-9-module-all</artifactId>
+    <artifactId>java-module-two</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>it.redhat.demo</groupId>
-            <artifactId>java-9-module-three</artifactId>
+            <artifactId>java-module-one</artifactId>
             <version>${parent.version}</version>
         </dependency>
     </dependencies>
+
 </project>

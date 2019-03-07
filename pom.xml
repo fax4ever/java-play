@@ -32,7 +32,7 @@
         <module>java-regex</module>
         <module>java-index</module>
         <module>java-dynamic-proxy</module>
-        <module>java-9-modules</module>
+        <module>java-modules</module>
     </modules>
 
     <properties>
