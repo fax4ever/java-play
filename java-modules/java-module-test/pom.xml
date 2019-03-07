@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>it.redhat.demo</groupId>
-    <artifactId>java-test-descriptor</artifactId>
+    <artifactId>java-module-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <build>

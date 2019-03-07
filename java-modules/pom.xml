@@ -21,7 +21,7 @@
         <module>java-module-two</module>
         <module>java-module-three</module>
         <module>java-module-all</module>
-        <module>java-test-descriptor</module>
+        <module>java-module-test</module>
     </modules>
 
     <dependencies>
