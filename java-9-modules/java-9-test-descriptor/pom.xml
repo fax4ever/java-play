@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>it.redhat.demo</groupId>
+    <artifactId>java-9-test-descriptor</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <version>1.0.0.Beta2</version>
+                <executions>
+                    <execution>
+                        <id>generate-module-info</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <modules>
+                                <module>
+                                    <artifact>
+                                        <groupId>it.redhat.demo</groupId>
+                                        <artifactId>java-9-module-one</artifactId>
+                                        <version>1.0-SNAPSHOT</version>
+                                    </artifact>
+                                    <moduleInfo>
+                                        <name>it.redhat.demo.module.one</name>
+                                    </moduleInfo>
+                                </module>
+                            </modules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
