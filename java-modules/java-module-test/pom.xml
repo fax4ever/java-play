@@ -95,6 +95,27 @@
                             </module>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>create-runtime-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>create-runtime-image</goal>
+                        </goals>
+                        <configuration>
+                            <modulePath>
+                                <path>${project.build.directory}/modules</path>
+                            </modulePath>
+                            <modules>
+                                <module>java.module.test</module>
+                                <module>java.module.all</module>
+                            </modules>
+                            <launcher>
+                                <name>run</name>
+                                <module>java.module.test</module>
+                            </launcher>
+                            <outputDirectory>${project.build.directory}/runtime</outputDirectory>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
