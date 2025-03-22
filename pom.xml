@@ -33,6 +33,7 @@
         <module>java-index</module>
         <module>java-dynamic-proxy</module>
         <module>java-generics</module>
+        <module>simple</module>
         <!--<module>java-modules</module> JDK 9+-->
     </modules>
 
