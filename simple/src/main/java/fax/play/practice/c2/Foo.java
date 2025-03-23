@@ -4,16 +4,10 @@ import java.util.concurrent.Semaphore;
 
 class Foo {
 
-   private final Semaphore waitFor1 = new Semaphore(1);
-   private final Semaphore waitFor2 = new Semaphore(1);
+   private final Semaphore waitFor1 = new Semaphore(0);
+   private final Semaphore waitFor2 = new Semaphore(0);
 
    public Foo() {
-      try {
-         waitFor1.acquire();
-         waitFor2.acquire();
-      } catch (InterruptedException e) {
-         throw new RuntimeException(e);
-      }
    }
 
    public void first(Runnable printFirst) throws InterruptedException {
