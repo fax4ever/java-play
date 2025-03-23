@@ -18,14 +18,19 @@ public class BinarySearch {
       if (b - a <= CONSTANT_TIME) {
          return simpleSearch(nums, target, a, b);
       }
+
+      int middle = ((b + a) / 2) - 1;
+      return (nums[middle] >= target) ?
+            searchInsert(nums, target, a, middle) :
+            searchInsert(nums, target, middle + 1, b);
    }
 
-   private int simpleSearch(int[] nums, int target, int a, int b) {
+   public int simpleSearch(int[] nums, int target, int a, int b) {
       for (int i = a; i <= b; i++) {
          if (target <= nums[i]) {
             return i;
          }
       }
-      return b;
+      return b + 1;
    }
 }
