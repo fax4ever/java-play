@@ -1,3 +1,5 @@
+package fax.play.practice;
+
 public class ValidPalindrome {
 
    public boolean isPalindrome(String s) {

@@ -1,3 +1,5 @@
+package fax.play.practice;
+
 public class MinSubArraySum {
 
    public int minSubArrayLen(int target, int[] nums) {
@@ -26,22 +28,20 @@ public class MinSubArraySum {
       final int[] nums;
       int first = 0;
       int last = 0;
+      int total;
 
       public Window(int target, int[] nums) {
          this.target = target;
          this.nums = nums;
+         total = nums[0];
       }
 
-      public int valueFrom(int from) {
-         int tot = 0;
-         for (int i = from; i <= last; i++) {
-            tot += nums[i];
-         }
-         return tot;
+      public int totalWithoutFirst() {
+         return total - nums[first];
       }
 
       public boolean solves() {
-         return valueFrom(first) >= target;
+         return total >= target;
       }
 
       public int size() {
@@ -53,13 +53,15 @@ public class MinSubArraySum {
             throw new RuntimeException("Window cannot move further");
          }
          last++;
+         total += nums[last];
          if (solves()) {
             tryToImprove();
          }
       }
 
       private void tryToImprove() {
-         if (valueFrom(first + 1) >= target) {
+         if (totalWithoutFirst() >= target) {
+            total = totalWithoutFirst();
             first++;
             tryToImprove();
          }

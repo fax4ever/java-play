@@ -1,3 +1,5 @@
+package fax.play.practice;
+
 public class RemoveElement {
 
    int i = 0;
